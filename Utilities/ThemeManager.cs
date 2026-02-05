@@ -93,6 +93,8 @@ namespace MissionPlanner.Utilities
             colors.Add("HUD Ground bottom", Color.FromArgb(0x1E, 0x3A, 0x5F), "HudGroundBot");
             colors.Add("HUD Sky top", Color.Blue, "HudSkyTop");
             colors.Add("HUD Sky bottom", Color.LightBlue, "HudSkyBot");
+            colors.Add("HUD accent (centerline, ticks)", Color.FromArgb(0x41, 0x69, 0xE1), "HudAccent");
+            colors.Add("HUD warning", Color.FromArgb(0xFF, 0x6B, 0x6B), "HudWarning");
 
         }
 
@@ -141,6 +143,8 @@ namespace MissionPlanner.Utilities
                 GCSViews.FlightData.myhud.skyColor1 = ThemeManager.HudSkyTop;
                 GCSViews.FlightData.myhud.skyColor2 = ThemeManager.HudSkyBot;
                 GCSViews.FlightData.myhud.hudcolor = ThemeManager.HudText;
+                GCSViews.FlightData.myhud.HudAccentColor = ThemeManager.HudAccent;
+                GCSViews.FlightData.myhud.HudWarningColor = ThemeManager.HudWarning;
             }
         }
     }
@@ -192,6 +196,8 @@ namespace MissionPlanner.Utilities
         public static Color HudGroundBot;
         public static Color HudSkyTop;
         public static Color HudSkyBot;
+        public static Color HudAccent = Color.FromArgb(0x41, 0x69, 0xE1);
+        public static Color HudWarning = Color.FromArgb(0xFF, 0x6B, 0x6B);
 
         public static ThemeColorTable thmColor;
 
@@ -963,16 +969,26 @@ mc:Ignorable=""d""
                 }
                 else if (ctl.GetType() == typeof(TabPage))
                 {
-                    ctl.BackColor = BGColor; //ControlBGColor
-                    ctl.ForeColor = TextColor;
-                    TabPage txtr = (TabPage)ctl;
-                    txtr.BorderStyle = BorderStyle.None;
+                    var tabPage = (TabPage)ctl;
+                    tabPage.BackColor = (tabPage.Parent is TabControl tc && tc.Name == "tabControlactions" && (tabPage.Name == "tabStatus" || tabPage.Name == "tabQuick")) ? ControlBGColor : BGColor;
+                    tabPage.ForeColor = TextColor;
+                    tabPage.BorderStyle = BorderStyle.None;
                 }
                 else if (ctl.GetType() == typeof(TabControl))
                 {
-                    ctl.BackColor = BGColor; //ControlBGColor
-                    ctl.ForeColor = TextColor;
-                    TabControl txtr = (TabControl)ctl;
+                    var tabCtrl = (TabControl)ctl;
+                    tabCtrl.BackColor = tabCtrl.Name == "tabControlactions" ? ControlBGColor : BGColor;
+                    tabCtrl.ForeColor = TextColor;
+                    if (tabCtrl.Name == "tabControlactions")
+                    {
+                        foreach (TabPage p in tabCtrl.TabPages)
+                        {
+                            if (p.Name == "tabStatus" || p.Name == "tabQuick")
+                                p.BackColor = ControlBGColor;
+                            else
+                                p.BackColor = BGColor;
+                        }
+                    }
                 }
                 else if (ctl.GetType() == typeof(DataGridView) || ctl.GetType() == typeof(MyDataGridView))
                 {
@@ -1265,16 +1281,26 @@ mc:Ignorable=""d""
                 }
                 else if (ctl.GetType() == typeof(TabPage))
                 {
-                    ctl.BackColor = BGColor;
-                    ctl.ForeColor = TextColor;
-                    TabPage txtr = (TabPage)ctl;
-                    txtr.BorderStyle = BorderStyle.None;
+                    var tabPage = (TabPage)ctl;
+                    tabPage.BackColor = (tabPage.Parent is TabControl tc && tc.Name == "tabControlactions" && (tabPage.Name == "tabStatus" || tabPage.Name == "tabQuick")) ? ControlBGColor : BGColor;
+                    tabPage.ForeColor = TextColor;
+                    tabPage.BorderStyle = BorderStyle.None;
                 }
                 else if (ctl.GetType() == typeof(TabControl))
                 {
-                    ctl.BackColor = BGColor;
-                    ctl.ForeColor = TextColor;
-                    TabControl txtr = (TabControl)ctl;
+                    var tabCtrl = (TabControl)ctl;
+                    tabCtrl.BackColor = tabCtrl.Name == "tabControlactions" ? ControlBGColor : BGColor;
+                    tabCtrl.ForeColor = TextColor;
+                    if (tabCtrl.Name == "tabControlactions")
+                    {
+                        foreach (TabPage p in tabCtrl.TabPages)
+                        {
+                            if (p.Name == "tabStatus" || p.Name == "tabQuick")
+                                p.BackColor = ControlBGColor;
+                            else
+                                p.BackColor = BGColor;
+                        }
+                    }
                 }
                 else if (ctl.GetType() == typeof(DataGridView) || ctl.GetType() == typeof(MyDataGridView))
                 {

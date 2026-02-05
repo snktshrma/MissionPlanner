@@ -417,10 +417,17 @@ namespace MissionPlanner.GCSViews
             myhud.skyColor1 = ThemeManager.HudSkyTop;
             myhud.skyColor2 = ThemeManager.HudSkyBot;
             myhud.hudcolor = ThemeManager.HudText;
+            myhud.HudAccentColor = ThemeManager.HudAccent;
+            myhud.HudWarningColor = ThemeManager.HudWarning;
+            myhud.UseCircularShape = Settings.Instance.GetBoolean("HUD_CircularShape", true);
 
             hud1.displayicons = Settings.Instance.GetBoolean("HUD_showicons", false);
 
             tabControlactions.Multiline = Settings.Instance.GetBoolean("tabControlactions_Multiline", false);
+            tabControlactions.BackColor = ThemeManager.ControlBGColor;
+            tabControlactions.ForeColor = ThemeManager.TextColor;
+            tabStatus.BackColor = ThemeManager.ControlBGColor;
+            tabQuick.BackColor = ThemeManager.ControlBGColor;
 
         }
 

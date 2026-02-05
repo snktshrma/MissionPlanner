@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -984,6 +984,28 @@ namespace MissionPlanner.Controls
             set { _groundColor2 = value; }
         }
 
+        [System.ComponentModel.Browsable(true), System.ComponentModel.Category("Values")]
+        public Color HudAccentColor
+        {
+            get { return _greenPen.Color; }
+            set { _greenPen.Color = value; }
+        }
+
+        [System.ComponentModel.Browsable(true), System.ComponentModel.Category("Values")]
+        public Color HudWarningColor
+        {
+            get { return _redPen.Color; }
+            set { _redPen.Color = value; _redBrush.Color = value; }
+        }
+
+        [System.ComponentModel.Browsable(true), System.ComponentModel.Category("Values"), DefaultValue(true)]
+        public bool UseCircularShape
+        {
+            get { return _useCircularShape; }
+            set { _useCircularShape = value; UpdateHudRegion(); }
+        }
+        private bool _useCircularShape = true;
+
         private Color _skyColor1 = Color.Blue;
         private Color _skyColor2 = Color.LightBlue;
         private Color _groundColor1 = Color.FromArgb(0x9b, 0xb8, 0x24);
@@ -1175,6 +1197,7 @@ namespace MissionPlanner.Controls
             log.Info("OnLoad Done");
 
             started = true;
+            BeginInvoke((Action)UpdateHudRegion);
         }
 
         public event EventHandler ekfclick;
@@ -1915,8 +1938,8 @@ namespace MissionPlanner.Controls
         }
 
         private readonly Pen _blackPen = new Pen(Color.Black, 2);
-        private readonly Pen _greenPen = new Pen(Color.Green, 2);
-        private readonly Pen _redPen = new Pen(Color.Red, 2);
+        private Pen _greenPen = new Pen(Color.FromArgb(0x41, 0x69, 0xE1), 2);
+        private Pen _redPen = new Pen(Color.FromArgb(0xFF, 0x6B, 0x6B), 2);
 
         internal void doPaint()
         {
@@ -3776,7 +3799,28 @@ namespace MissionPlanner.Controls
             {
             }
 
+            UpdateHudRegion();
             Refresh();
+        }
+
+        private void UpdateHudRegion()
+        {
+            if (IsDisposed || !IsHandleCreated)
+                return;
+            try
+            {
+                if (_useCircularShape && Width > 0 && Height > 0)
+                {
+                    using (var path = new GraphicsPath())
+                    {
+                        path.AddEllipse(0, 0, Width, Height);
+                        Region = new Region(path);
+                    }
+                }
+                else
+                    Region = null;
+            }
+            catch { }
         }
 
         [Browsable(false)]

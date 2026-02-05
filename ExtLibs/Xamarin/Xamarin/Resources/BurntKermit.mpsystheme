@@ -141,6 +141,16 @@
       <clrColor Web="LightBlue" />
       <strVariableName>HudSkyBot</strVariableName>
     </ThemeColor>
+    <ThemeColor>
+      <strColorItemName>HUD accent (centerline, ticks)</strColorItemName>
+      <clrColor Web="#4169E1" />
+      <strVariableName>HudAccent</strVariableName>
+    </ThemeColor>
+    <ThemeColor>
+      <strColorItemName>HUD warning</strColorItemName>
+      <clrColor Web="#FF6B6B" />
+      <strVariableName>HudWarning</strVariableName>
+    </ThemeColor>
   </colors>
   <iconSet>BurnKermitIconSet</iconSet>
   <terminalTheming>true</terminalTheming>
