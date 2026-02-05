@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ThemeColorTable xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <colors>
     <ThemeColor>
@@ -23,62 +23,62 @@
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>Button Text</strColorItemName>
-      <clrColor Web="#405704" />
+      <clrColor Web="#1E3A8A" />
       <strVariableName>ButtonTextColor</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>Button Background top</strColorItemName>
-      <clrColor Web="#94C11F" />
+      <clrColor Web="#4169E1" />
       <strVariableName>ButBG</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>Button Background bottom</strColorItemName>
-      <clrColor Web="#CDE296" />
+      <clrColor Web="#93B0E8" />
       <strVariableName>ButBGBot</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>ProgressBar Top</strColorItemName>
-      <clrColor Web="#668B1A" />
+      <clrColor Web="#3658B8" />
       <strVariableName>ProgressBarColorTop</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>ProgressBar Bottom</strColorItemName>
-      <clrColor Web="#7CA428" />
+      <clrColor Web="#4A6BC9" />
       <strVariableName>ProgressBarColorBot</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>ProgressBar Outline</strColorItemName>
-      <clrColor Web="#96AE70" />
+      <clrColor Web="#7A96D4" />
       <strVariableName>ProgressBarOutlineColor</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>BannerColor1</strColorItemName>
-      <clrColor Web="#405704" />
+      <clrColor Web="#1E3A8A" />
       <strVariableName>BannerColor1</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>BannerColor2</strColorItemName>
-      <clrColor Web="#94C11F" />
+      <clrColor Web="#4169E1" />
       <strVariableName>BannerColor2</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>Disabled Button</strColorItemName>
-      <clrColor Web="#2B3A03" Alpha="150" />
+      <clrColor Web="#1E3A8A" Alpha="150" />
       <strVariableName>ColorNotEnabled</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>Button Mouseover</strColorItemName>
-      <clrColor Web="#2B3A03" Alpha="73" />
+      <clrColor Web="#1E3A8A" Alpha="73" />
       <strVariableName>ColorMouseOver</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>Button Mousedown</strColorItemName>
-      <clrColor Web="#2B3A03" Alpha="73" />
+      <clrColor Web="#1E3A8A" Alpha="73" />
       <strVariableName>ColorMouseDown</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>CurrentPPM Background</strColorItemName>
-      <clrColor Web="Green" />
+      <clrColor Web="#4169E1" />
       <strVariableName>CurrentPPMBackground</strVariableName>
     </ThemeColor>
     <ThemeColor>
@@ -113,7 +113,7 @@
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>Horizontal ProgressBar</strColorItemName>
-      <clrColor Web="#94C11F" />
+      <clrColor Web="#4169E1" />
       <strVariableName>HorizontalPBValueColor</strVariableName>
     </ThemeColor>
     <ThemeColor>
@@ -123,12 +123,12 @@
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>HUD Ground top</strColorItemName>
-      <clrColor Web="#9bb824" />
+      <clrColor Web="#4A6BC9" />
       <strVariableName>HudGroundTop</strVariableName>
     </ThemeColor>
     <ThemeColor>
       <strColorItemName>HUD Ground bottom</strColorItemName>
-      <clrColor Web="#414f07" />
+      <clrColor Web="#1E3A5F" />
       <strVariableName>HudGroundBot</strVariableName>
     </ThemeColor>
     <ThemeColor>

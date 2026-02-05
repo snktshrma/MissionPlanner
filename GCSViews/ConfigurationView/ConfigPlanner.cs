@@ -1,4 +1,4 @@
-﻿using DirectShowLib;
+using DirectShowLib;
 using MissionPlanner.Controls;
 using MissionPlanner.Joystick;
 using MissionPlanner.Maps;
@@ -240,6 +240,12 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             chk_displaynavbearing.Checked = Settings.Instance.GetBoolean("GMapMarkerBase_DisplayNavBearing", true);
             chk_displayradius.Checked = Settings.Instance.GetBoolean("GMapMarkerBase_DisplayRadius", true);
             chk_displaytarget.Checked = Settings.Instance.GetBoolean("GMapMarkerBase_DisplayTarget", true);
+            if (string.IsNullOrEmpty(Settings.Instance.GetString("mapicondesc", "")))
+            {
+                var defaultDesc = "{alt}{altunit} {airspeed}{speedunit} id:{sysid} Sats:{satcount} HDOP:{gpshdop} Volts:{battery_voltage}";
+                Settings.Instance["mapicondesc"] = defaultDesc;
+                Settings.Instance["mapicondesc_default"] = defaultDesc;
+            }
             chk_displaytooltip.Checked = Settings.Instance.GetString("mapicondesc", "") != "";
             num_linelength.Value = Settings.Instance.GetInt32("GMapMarkerBase_Length", 500);
 
