@@ -1,4 +1,4 @@
-﻿using GMap.NET.MapProviders;
+using GMap.NET.MapProviders;
 using log4net;
 using log4net.Config;
 using MissionPlanner.Comms;
@@ -201,7 +201,7 @@ namespace MissionPlanner
                 return;
             }
 
-            name = "Mission Planner";
+            name = "Arigni defence";
 
             try
             {
