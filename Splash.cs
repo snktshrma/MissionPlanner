@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -9,6 +9,13 @@ namespace MissionPlanner
         public Splash()
         {
             InitializeComponent();
+            try
+            {
+                var bg = MissionPlanner.Properties.Resources.splashbg;
+                if (bg != null)
+                    this.BackgroundImage = bg;
+            }
+            catch { /* keep splashdark if splashbg.png not in Resources */ }
 
             string strVersion = typeof(Splash).GetType().Assembly.GetName().Version.ToString();
 
